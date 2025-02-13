@@ -4,11 +4,11 @@ FROM openjdk:23-jdk
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the project files to the container
-COPY . /app
+# Copy the entire project into the container
+COPY . .
 
-# Package the application
-RUN ./mvnw package -DskipTests
+# Make the Maven wrapper executable and package the application
+RUN chmod +x ./mvnw && ./mvnw package -DskipTests
 
 # Expose the port the application runs on
 EXPOSE ${APP_PORT}
