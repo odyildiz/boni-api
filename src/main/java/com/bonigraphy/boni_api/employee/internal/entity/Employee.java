@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(schema= "employee", name = "employee")
+@Table(name = "employee")
 public class Employee {
 
     @Id
@@ -27,5 +27,6 @@ public class Employee {
     @Column(nullable = false)
     private String fullName;
 
+    @Transient
     private final String role = "ADMIN";
 }
