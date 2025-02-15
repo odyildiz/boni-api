@@ -1,0 +1,359 @@
+{
+  "menuCategories": [
+    {
+      "id": "coffee",
+      "name": {
+        "en": "Coffee",
+        "tr": "Kahve"
+      }
+    },
+    {
+      "id": "coldCoffee",
+      "name": {
+        "en": "Cold Coffee",
+        "tr": "Soğuk Kahve"
+      }
+    },
+    {
+      "id": "drinks",
+      "name": {
+        "en": "Drinks",
+        "tr": "İçecekler"
+      }
+    },
+    {
+      "id": "coldDrinks",
+      "name": {
+        "en": "Cold Drinks",
+        "tr": "Soğuk İçecekler"
+      }
+    },
+    {
+      "id": "snacks",
+      "name": {
+        "en": "Snacks",
+        "tr": "Atıştırmalıklar"
+      }
+    },
+    {
+      "id": "desserts",
+      "name": {
+        "en": "Desserts",
+        "tr": "Tatlı"
+      }
+    },
+    {
+      "id": "extra",
+      "name": {
+        "en": "Extra",
+        "tr": "Ekstra"
+      }
+    }
+  ],
+  "menuItems": {
+    "coffee": [
+      {
+        "name": {
+          "en": "Espresso (Single)",
+          "tr": "Espresso (Single)"
+        },
+        "price": 80.00
+      },
+      {
+        "name": {
+          "en": "Espresso (Double)",
+          "tr": "Espresso (Double)"
+        },
+        "price": 90.00
+      },
+      {
+        "name": {
+          "en": "Lungo",
+          "tr": "Lungo"
+        },
+        "price": 80.00,
+        "price2": 100.00
+      },
+      {
+        "name": {
+          "en": "Americano",
+          "tr": "Americano"
+        },
+        "price": 100.00
+      },
+      {
+        "name": {
+          "en": "Caramel Latte",
+          "tr": "Caramel Latte"
+        },
+        "price": 130.00
+      },
+      {
+        "name": {
+          "en": "Vanilla Latte",
+          "tr": "Vanilla Latte"
+        },
+        "price": 130.00
+      },
+      {
+        "name": {
+          "en": "Cafe Latte",
+          "tr": "Cafe Latte"
+        },
+        "price": 120.00
+      },
+      {
+        "name": {
+          "en": "Cappuccino",
+          "tr": "Cappuccino"
+        },
+        "price": 120.00
+      },
+      {
+        "name": {
+          "en": "Flat White",
+          "tr": "Flat White"
+        },
+        "price": 120.00
+      },
+      {
+        "name": {
+          "en": "Cortado",
+          "tr": "Cortado"
+        },
+        "price": 115.00
+      },
+      {
+        "name": {
+          "en": "Cafe Miel (honey + cinnamon)",
+          "tr": "Cafe Miel (bal + tarçın)"
+        },
+        "price": 140.00
+      },
+      {
+        "name": {
+          "en": "Mocha",
+          "tr": "Mocha"
+        },
+        "price": 130.00
+      },
+      {
+        "name": {
+          "en": "White Chocolate Mocha",
+          "tr": "White Chocolate Mocha"
+        },
+        "price": 130.00
+      },
+      {
+        "name": {
+          "en": "Filter Coffee",
+          "tr": "Filtre Kahve"
+        },
+        "price": 100.00
+      },
+      {
+        "name": {
+          "en": "Turkish Coffee",
+          "tr": "Türk Kahvesi"
+        },
+        "price": 75.00,
+        "price2": 90.00
+      }
+    ],
+    "coldCoffee": [
+      {
+        "name": {
+          "en": "Iced Americano",
+          "tr": "Buzlu Americano"
+        },
+        "price": 120.00
+      },
+      {
+        "name": {
+          "en": "Iced Latte",
+          "tr": "Buzlu Latte"
+        },
+        "price": 130.00
+      },
+      {
+        "name": {
+          "en": "Iced Flat White",
+          "tr": "Buzlu Flat White"
+        },
+        "price": 130.00
+      },
+      {
+        "name": {
+          "en": "Iced Mocha",
+          "tr": "Buzlu Mocha"
+        },
+        "price": 135.00
+      },
+      {
+        "name": {
+          "en": "Iced White Mocha",
+          "tr": "Buzlu White Mocha"
+        },
+        "price": 135.00
+      },
+      {
+        "name": {
+          "en": "Affogato (Vanilla Ice Cream + Espresso)",
+          "tr": "Affogato (Vanilyalı Dondurma + Espresso)"
+        },
+        "price": 140.00
+      }
+    ],
+    "extra": [
+      {
+        "name": {
+          "en": "Shot",
+          "tr": "Shot"
+        },
+        "price": 30.00
+      },
+      {
+        "name": {
+          "en": "Syrup",
+          "tr": "Şurup"
+        },
+        "price": 15.00
+      },
+      {
+        "name": {
+          "en": "Milk",
+          "tr": "Süt"
+        },
+        "price": 15.00
+      },
+      {
+        "name": {
+          "en": "Ice Cream",
+          "tr": "Dondurma"
+        },
+        "price": 30.00
+      }
+    ],
+    "drinks": [
+      {
+        "name": {
+          "en": "Honey Milk",
+          "tr": "Ballı Süt"
+        },
+        "price": 100.00
+      },
+      {
+        "name": {
+          "en": "Salep",
+          "tr": "Salep"
+        },
+        "price": 125.00
+      },
+      {
+        "name": {
+          "en": "Hot Chocolate",
+          "tr": "Sıcak Çikolata"
+        },
+        "price": 130.00
+      },
+      {
+        "name": {
+          "en": "Tea",
+          "tr": "Çay"
+        },
+        "price": 30.00,
+        "price2": 50.00
+      },
+      {
+        "name": {
+          "en": "Herbal Tea (Sage, Lemon Balm, Green, Linden, Daisy, Winter)",
+          "tr": "Bitki Çayı (Ada, Melisa, Yeşil, Ihlamur, Papatya, Kış Çayı)"
+        },
+        "price": 110.00
+      }
+    ],
+    "coldDrinks": [
+      {
+        "name": {
+          "en": "Sparkling Water",
+          "tr": "Maden Suyu"
+        },
+        "price": 50.00
+      },
+      {
+        "name": {
+          "en": "Churchill",
+          "tr": "Churchill"
+        },
+        "price": 80.00
+      },
+      {
+        "name": {
+          "en": "Fizzy Drink",
+          "tr": "Gazoz"
+        },
+        "price": 80.00
+      },
+      {
+        "name": {
+          "en": "Cold Chocolate",
+          "tr": "Soğuk Çikolata"
+        },
+        "price": 135.00
+      },
+      {
+        "name": {
+          "en": "Orange Juice",
+          "tr": "Portakal Suyu"
+        },
+        "price": 120.00
+      },
+      {
+        "name": {
+          "en": "Water",
+          "tr": "Su"
+        },
+        "price": 30.00
+      }
+    ],
+    "snacks": [
+      {
+        "name": {
+          "en": "Boni Toast (Balkan Sauce, Ezine Cheese, Kashar Cheese)",
+          "tr": "Boni Tost (Balkan Sos, Ezine Peyniri, Kaşar Peyniri)"
+        },
+        "price": 190.00
+      },
+      {
+        "name": {
+          "en": "White Cheese with Tomato Toast (Ezine Cheese, Tomato, Olive Oil, Thyme)",
+          "tr": "Beyaz Peynirli Domatesli Tost (Ezine Peyniri, Domates, Zeytin Yağı, Kekik)"
+        },
+        "price": 190.00
+      },
+      {
+        "name": {
+          "en": "Kashar Cheese Toast",
+          "tr": "Kaşar Peyniri"
+        },
+        "price": 170.00
+      }
+    ],
+    "desserts": [
+      {
+        "name": {
+          "en": "Brownie + Ice Cream",
+          "tr": "Brownie + Dondurma"
+        },
+        "price": 190.00
+      },
+      {
+        "name": {
+          "en": "Chocolate Cookie",
+          "tr": "Çikolatalı Kurabiye"
+        },
+        "price": 80.00
+      }
+    ]
+  }
+}
