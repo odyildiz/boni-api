@@ -1,18 +1,15 @@
 package com.bonigraphy.boni_api.ui;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class MenuContent {
 
     private List<MenuCategory> menuCategories;
-    private List<MenuItem> menuItems;
 
     @Setter
     @Getter
@@ -21,6 +18,7 @@ public class MenuContent {
         private Long id;
         private String slug;
         private Name name;
+        private List<MenuItem> menuItems;
     }
 
     @Setter
@@ -28,6 +26,7 @@ public class MenuContent {
     @AllArgsConstructor
     public static class MenuItem {
         private Long id;
+        private Long categoryId;
         private String slug;
         private Name name;
         private Price price;
@@ -45,7 +44,8 @@ public class MenuContent {
     @Getter
     @AllArgsConstructor
     public static class Price {
-        private String price1;
-        private String price2;
+        private Double price1;
+        private Double price2;
     }
 }
+

@@ -1,6 +1,6 @@
-package com.bonigraphy.boni_api.menu.internal.repository;
+package com.bonigraphy.boni_api.menu.category.repository;
 
-import com.bonigraphy.boni_api.menu.internal.entity.MenuCategory;
+import com.bonigraphy.boni_api.menu.category.entity.MenuCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

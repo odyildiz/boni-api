@@ -1,8 +1,8 @@
 package com.bonigraphy.boni_api.auth.internal.service;
 
+import com.bonigraphy.boni_api.auth.internal.model.EmployeeUserDetails;
 import com.bonigraphy.boni_api.employee.EmployeePort;
 import com.bonigraphy.boni_api.employee.EmployeeResponse;
-import com.bonigraphy.boni_api.auth.internal.model.EmployeeUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

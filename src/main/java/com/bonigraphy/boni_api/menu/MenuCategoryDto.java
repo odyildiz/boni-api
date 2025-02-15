@@ -1,6 +1,6 @@
-package com.bonigraphy.boni_api.menu.internal;
+package com.bonigraphy.boni_api.menu;
 
-import com.bonigraphy.boni_api.menu.internal.entity.MenuCategory;
+import com.bonigraphy.boni_api.menu.category.entity.MenuCategory;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

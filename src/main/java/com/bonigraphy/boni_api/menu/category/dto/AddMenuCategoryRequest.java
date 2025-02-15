@@ -1,4 +1,4 @@
-package com.bonigraphy.boni_api.menu.internal.dto;
+package com.bonigraphy.boni_api.menu.category.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

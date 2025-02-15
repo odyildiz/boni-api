@@ -1,8 +1,10 @@
-package com.bonigraphy.boni_api.menu.internal.service;
+package com.bonigraphy.boni_api.menu.category.service;
 
-import com.bonigraphy.boni_api.menu.internal.dto.AddMenuCategoryRequest;
-import com.bonigraphy.boni_api.menu.internal.entity.MenuCategory;
-import com.bonigraphy.boni_api.menu.internal.repository.MenuCategoryRepository;
+import com.bonigraphy.boni_api.menu.category.dto.AddMenuCategoryRequest;
+import com.bonigraphy.boni_api.menu.category.dto.UpdateMenuCategoryRequest;
+import com.bonigraphy.boni_api.menu.category.entity.MenuCategory;
+import com.bonigraphy.boni_api.menu.category.repository.MenuCategoryRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +16,22 @@ public class MenuCategoryCommandServiceImpl implements MenuCategoryCommandServic
     @Override
     public void save(AddMenuCategoryRequest addMenuCategoryRequest) {
         var menuCategory = new MenuCategory();
+
         menuCategory.setSlug(slugify(addMenuCategoryRequest.getNameEn()));
         menuCategory.setNameTr(addMenuCategoryRequest.getNameTr());
         menuCategory.setNameEn(addMenuCategoryRequest.getNameEn());
+
+        menuCategoryRepository.save(menuCategory);
+    }
+
+    @Override
+    public void update(Long id, UpdateMenuCategoryRequest updateMenuCategoryRequest) {
+        var menuCategory = menuCategoryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Menü kategorisi bulunamadı: " + id));
+
+        menuCategory.setSlug(slugify(updateMenuCategoryRequest.getNameEn()));
+        menuCategory.setNameTr(updateMenuCategoryRequest.getNameTr());
+        menuCategory.setNameEn(updateMenuCategoryRequest.getNameEn());
+
         menuCategoryRepository.save(menuCategory);
     }
 

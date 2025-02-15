@@ -1,5 +1,6 @@
-package com.bonigraphy.boni_api.menu.internal.entity;
+package com.bonigraphy.boni_api.menu.item.entity;
 
+import com.bonigraphy.boni_api.menu.category.entity.MenuCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,8 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "menu_category")
-public class MenuCategory {
+@Table(name = "menu_item")
+public class MenuItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,4 +28,13 @@ public class MenuCategory {
     @Column(nullable = false, name = "name_en")
     private String nameEn;
 
+    @Column(nullable = false)
+    private Double price1;
+
+    @Column
+    private Double price2;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private MenuCategory category;
 }

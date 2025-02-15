@@ -1,4 +1,4 @@
-package com.bonigraphy.boni_api.menu.internal;
+package com.bonigraphy.boni_api.menu;
 
 import java.util.List;
 
