@@ -22,33 +22,33 @@ public class MenuItemController {
     private final MenuItemQueryService menuItemQueryService;
 
     @GetMapping("/list")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<MenuItemDto>> list() {
         return ResponseEntity.ok(menuItemQueryService.findAll());
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<MenuItemDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok(menuItemQueryService.findById(id));
     }
 
     @PostMapping("/add")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<HttpStatus> create(@RequestBody AddMenuItemRequest addMenuItemRequest) {
         menuItemCommandService.create(addMenuItemRequest);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<HttpStatus> update(@PathVariable Long id, @RequestBody UpdateMenuItemRequest updateMenuItemRequest) {
         menuItemCommandService.update(id, updateMenuItemRequest);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         menuItemCommandService.delete(id);
         return ResponseEntity.noContent().build();

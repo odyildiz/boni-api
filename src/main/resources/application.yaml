@@ -1,6 +1,8 @@
 server:
   port: ${APP_PORT}
 spring:
+  profiles:
+    active: ${SPRING_PROFILE}
   application:
     name: boni-api
   datasource:
@@ -19,3 +21,4 @@ security:
   jwt:
     secret-key: ${JWT_SECRET}
     expiration: ${JWT_EXPIRATION_TIME}
+    refresh-token-expiration: ${JWT_REFRESH_EXPIRATION_TIME}

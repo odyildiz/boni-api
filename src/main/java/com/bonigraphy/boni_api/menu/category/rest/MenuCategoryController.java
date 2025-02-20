@@ -23,27 +23,28 @@ public class MenuCategoryController {
     private final MenuCategoryQueryService menuCategoryQueryService;
 
     @GetMapping("/list")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @CrossOrigin
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<MenuCategoryDto>> list() {
         return ResponseEntity.ok(menuCategoryQueryService.findAll());
     }
 
     @PostMapping("/add")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<HttpStatus> add(@RequestBody AddMenuCategoryRequest addMenuCategoryRequest) {
         menuCategoryCommandService.save(addMenuCategoryRequest);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<HttpStatus> update(@PathVariable Long id, @RequestBody UpdateMenuCategoryRequest updateMenuCategoryRequest) {
         menuCategoryCommandService.update(id ,updateMenuCategoryRequest);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<HttpStatus> delete(@PathVariable Long id) {
         menuCategoryCommandService.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);
