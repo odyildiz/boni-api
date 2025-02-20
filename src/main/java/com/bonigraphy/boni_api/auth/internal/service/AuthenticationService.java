@@ -41,7 +41,7 @@ public class AuthenticationService {
         refreshCookie.setHttpOnly(true);
         refreshCookie.setSecure(!activeProfile.equals("dev"));
         refreshCookie.setPath("/panel/auth/refresh");
-        refreshCookie.setAttribute("SameSite", activeProfile.equals("dev") ? "None" : "Strict");
+        refreshCookie.setAttribute("SameSite", "Strict");
         refreshCookie.setMaxAge((int) jwtService.getRefreshExpiration());
 
         response.addCookie(refreshCookie);
@@ -63,7 +63,7 @@ public class AuthenticationService {
 
                 Cookie refreshCookie = new Cookie("refreshToken", newRefreshToken);
                 refreshCookie.setHttpOnly(true);
-                refreshCookie.setSecure(false);
+                refreshCookie.setSecure(!activeProfile.equals("dev"));
                 refreshCookie.setPath("/panel/auth/refresh");
                 refreshCookie.setAttribute("SameSite", "Strict");
                 refreshCookie.setMaxAge((int) jwtService.getRefreshExpiration());
