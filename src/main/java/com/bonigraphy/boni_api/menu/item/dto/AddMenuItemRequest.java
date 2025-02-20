@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Getter
 public class AddMenuItemRequest {
 
-    private Long categoryId;
     private String nameTr;
     private String nameEn;
     private Double price1;

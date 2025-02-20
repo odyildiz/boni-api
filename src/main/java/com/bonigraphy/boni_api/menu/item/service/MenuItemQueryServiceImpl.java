@@ -18,21 +18,6 @@ public class MenuItemQueryServiceImpl implements MenuItemQueryService, MenuItemQ
 
     @Override
     @Transactional(readOnly = true)
-    public List<MenuItemDto> findAll() {
-        return menuItemRepository.findAll().stream()
-                .map(MenuItemDto::new)
-                .toList();
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public MenuItemDto findById(Long id) {
-        return menuItemRepository.findById(id)
-                .map(MenuItemDto::new)
-                .orElseThrow(() -> new EntityNotFoundException("Menü elemanı bulunamadı: " + id));
-    }
-
-    @Override
     public List<MenuItemDto> findAllByCategoryId(Long categoryId) {
         return menuItemRepository.findAllByCategory_Id(categoryId).stream()
                 .map(MenuItemDto::new)

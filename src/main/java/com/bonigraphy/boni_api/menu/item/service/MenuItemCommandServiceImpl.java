@@ -17,15 +17,15 @@ public class MenuItemCommandServiceImpl implements MenuItemCommandService {
     private final MenuCategoryRepository menuCategoryRepository;
 
     @Override
-    public void create(AddMenuItemRequest addMenuItemRequest) {
+    public void create(Long categoryId, AddMenuItemRequest addMenuItemRequest) {
         var slug = slugify(addMenuItemRequest.getNameEn());
 
         if (menuItemRepository.existsBySlug(slug)) {
             throw new IllegalArgumentException("Bu menü elemanı zaten bulunmakta: " + slug);
         }
 
-        var category = menuCategoryRepository.findById(addMenuItemRequest.getCategoryId())
-                .orElseThrow(() -> new EntityNotFoundException("Menü kategorisi bulunamadı: " + addMenuItemRequest.getCategoryId()));
+        var category = menuCategoryRepository.findById(categoryId)
+                .orElseThrow(() -> new EntityNotFoundException("Menü kategorisi bulunamadı: " + categoryId));
 
         var menuItem = MenuItem.builder()
                 .slug(slugify(slug))

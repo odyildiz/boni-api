@@ -21,22 +21,16 @@ public class MenuItemController {
     private final MenuItemCommandService menuItemCommandService;
     private final MenuItemQueryService menuItemQueryService;
 
-    @GetMapping("/list")
+    @GetMapping("/list/{categoryId}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<List<MenuItemDto>> list() {
-        return ResponseEntity.ok(menuItemQueryService.findAll());
+    public ResponseEntity<List<MenuItemDto>> list(@PathVariable Long categoryId) {
+        return ResponseEntity.ok(menuItemQueryService.findAllByCategoryId(categoryId));
     }
 
-    @GetMapping("/{id}")
+    @PostMapping("/add/{categoryId}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<MenuItemDto> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(menuItemQueryService.findById(id));
-    }
-
-    @PostMapping("/add")
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<HttpStatus> create(@RequestBody AddMenuItemRequest addMenuItemRequest) {
-        menuItemCommandService.create(addMenuItemRequest);
+    public ResponseEntity<HttpStatus> create(@RequestBody AddMenuItemRequest addMenuItemRequest, @PathVariable Long categoryId) {
+        menuItemCommandService.create(categoryId, addMenuItemRequest);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
