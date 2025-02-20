@@ -3,7 +3,6 @@ package com.bonigraphy.boni_api.menu.item.service;
 import com.bonigraphy.boni_api.menu.MenuItemDto;
 import com.bonigraphy.boni_api.menu.MenuItemQueryPort;
 import com.bonigraphy.boni_api.menu.item.repository.MenuItemRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
