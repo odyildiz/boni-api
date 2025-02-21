@@ -29,6 +29,18 @@ CREATE TABLE menu_item
     FOREIGN KEY (category_id) REFERENCES menu_category (id)
 );
 
+-- Create gallery photo table
+CREATE TABLE photo (
+                       id SERIAL PRIMARY KEY,
+                       image_url VARCHAR(255) NOT NULL,
+                       title_tr VARCHAR(255) NOT NULL,
+                       title_en VARCHAR(255) NOT NULL,
+                       description_tr TEXT NOT NULL,
+                       description_en TEXT NOT NULL
+);
+
+---- sample data --------
+
 INSERT INTO public.employee (email, password, full_name)
 VALUES ('ozencyldz@gmail.com', '$2a$10$QceY7PKMl/3y5QePzS6bBehKZsxiEo1vTsY/8yDMmlTNN0FgRoSTG', 'Özenç Yıldız');
 
@@ -130,3 +142,42 @@ VALUES ((SELECT id FROM menu_category WHERE slug = 'desserts'), 'brownie-ice-cre
         'Brownie + Ice Cream', 190.00, null),
        ((SELECT id FROM menu_category WHERE slug = 'desserts'), 'chocolate-cookie', 'Çikolatalı Kurabiye',
         'Chocolate Cookie', 80.00, null);
+
+-- Gallery Photos
+INSERT INTO photo (image_url, title_tr, title_en, description_tr, description_en)
+VALUES
+    ('https://images.unsplash.com/photo-1470115636492-6d2b56f9146d',
+     'Şehir Manzarası',
+     'Urban Landscape',
+     'Altın saatte şehir siluetinin muhteşem bir görünümü, modern mimariyi ve şehir planlamasını en iyi şekilde sergiliyor.',
+     'A stunning view of the city skyline at golden hour, showcasing modern architecture and urban planning at its finest.'),
+
+    ('https://images.unsplash.com/photo-1470093851219-69951fcbb533',
+     'Sokak Yaşamı',
+     'Street Life',
+     'Farklı kültürlerin ve günlük yaşamın güzel bir kaos içinde kesiştiği şehir sokaklarının canlı enerjisini yakalıyor.',
+     'Capturing the vibrant energy of city streets, where diverse cultures and daily life intersect in beautiful chaos.'),
+
+    ('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d',
+     'Doğanın Yolu',
+     'Nature''s Path',
+     'Eski ağaçların arasından kıvrılan huzurlu bir orman patikası, gezginleri doğanın gizli hazinelerini keşfetmeye davet ediyor.',
+     'A serene forest trail winding through ancient trees, inviting wanderers to explore nature''s hidden treasures.'),
+
+    ('https://images.unsplash.com/photo-1472214103451-9374bd1c798e',
+     'Dağ Manzarası',
+     'Mountain View',
+     'Sabah sisini delen görkemli dağ zirveleri, doğal güzelliğin nefes kesen bir panoramasını oluşturuyor.',
+     'Majestic mountain peaks piercing through morning mist, creating a breathtaking panorama of natural beauty.'),
+
+    ('https://images.unsplash.com/photo-1470093851219-69951fcbb533',
+     'Şehir Geceleri',
+     'City Nights',
+     'Şehir geceleri ışıkların senfonisiyle canlanıyor, hiç uyumayan büyülü bir kent manzarası yaratıyor.',
+     'The city comes alive at night with a symphony of lights, creating a magical urban landscape that never sleeps.'),
+
+    ('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d',
+     'Orman Yürüyüşü',
+     'Forest Walk',
+     'Güneş ışığının ağaç tepelerinden esrarengiz ışınlar halinde süzüldüğü ormanın kalbinde huzurlu bir yolculuk.',
+     'A peaceful journey through the heart of the forest, where sunlight filters through the canopy in ethereal rays.');
