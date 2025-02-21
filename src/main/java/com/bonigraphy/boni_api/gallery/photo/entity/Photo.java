@@ -32,4 +32,7 @@ public class Photo {
 
     @Column(nullable = false)
     private String descriptionEn;
+
+    @Column(nullable = false)
+    private Integer sortOrder;
 }

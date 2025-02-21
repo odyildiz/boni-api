@@ -34,6 +34,9 @@ public class MenuItem {
     @Column
     private Double price2;
 
+    @Column(nullable = false)
+    private Integer sortOrder;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private MenuCategory category;

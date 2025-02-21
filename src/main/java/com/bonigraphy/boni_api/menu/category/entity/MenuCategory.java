@@ -27,4 +27,6 @@ public class MenuCategory {
     @Column(nullable = false, name = "name_en")
     private String nameEn;
 
+    @Column(nullable = false)
+    private Integer sortOrder;
 }
