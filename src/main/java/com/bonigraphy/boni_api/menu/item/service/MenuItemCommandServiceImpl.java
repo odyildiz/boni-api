@@ -27,6 +27,8 @@ public class MenuItemCommandServiceImpl implements MenuItemCommandService {
         var category = menuCategoryRepository.findById(categoryId)
                 .orElseThrow(() -> new EntityNotFoundException("Menü kategorisi bulunamadı: " + categoryId));
 
+        int nextSortOrder = menuItemRepository.getNextSortOrder(categoryId);
+
         var menuItem = MenuItem.builder()
                 .slug(slugify(slug))
                 .nameTr(addMenuItemRequest.getNameTr())
@@ -34,6 +36,7 @@ public class MenuItemCommandServiceImpl implements MenuItemCommandService {
                 .price1(addMenuItemRequest.getPrice1())
                 .price2(addMenuItemRequest.getPrice2())
                 .category(category)
+                .sortOrder(nextSortOrder)
                 .build();
 
         menuItemRepository.save(menuItem);

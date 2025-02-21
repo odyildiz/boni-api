@@ -14,12 +14,14 @@ public class PhotoCommandServiceImpl implements PhotoCommandService {
     private final PhotoRepository photoRepository;
 
     public void create(AddPhotoRequest request) {
+        int nextSortOrder = photoRepository.getNextSortOrder();
         var photo = Photo.builder()
                 .imageUrl(request.getImageUrl())
                 .titleTr(request.getTitleTr())
                 .titleEn(request.getTitleEn())
                 .descriptionTr(request.getDescriptionTr())
                 .descriptionEn(request.getDescriptionEn())
+                .sortOrder(nextSortOrder)
                 .build();
         photoRepository.save(photo);
     }

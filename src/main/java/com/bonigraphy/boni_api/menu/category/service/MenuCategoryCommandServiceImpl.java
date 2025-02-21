@@ -15,11 +15,13 @@ public class MenuCategoryCommandServiceImpl implements MenuCategoryCommandServic
 
     @Override
     public void save(AddMenuCategoryRequest addMenuCategoryRequest) {
+        int nextSortOrder = menuCategoryRepository.getNextSortOrder();
         var menuCategory = new MenuCategory();
 
         menuCategory.setSlug(slugify(addMenuCategoryRequest.getNameEn()));
         menuCategory.setNameTr(addMenuCategoryRequest.getNameTr());
         menuCategory.setNameEn(addMenuCategoryRequest.getNameEn());
+        menuCategory.setSortOrder(nextSortOrder);
 
         menuCategoryRepository.save(menuCategory);
     }
