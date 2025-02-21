@@ -2,6 +2,7 @@ package com.bonigraphy.boni_api.menu.item.rest;
 
 import com.bonigraphy.boni_api.menu.MenuItemDto;
 import com.bonigraphy.boni_api.menu.item.dto.AddMenuItemRequest;
+import com.bonigraphy.boni_api.menu.item.dto.SortOrderRequest;
 import com.bonigraphy.boni_api.menu.item.dto.UpdateMenuItemRequest;
 import com.bonigraphy.boni_api.menu.item.service.MenuItemCommandService;
 import com.bonigraphy.boni_api.menu.item.service.MenuItemQueryService;
@@ -50,8 +51,8 @@ public class MenuItemController {
 
     @PostMapping("/reorder/{categoryId}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<HttpStatus> reorderItems(@RequestBody List<Long> orderedIds, @PathVariable Long categoryId) {
-        menuItemCommandService.updateSortOrder(orderedIds, categoryId);
+    public ResponseEntity<HttpStatus> reorderItems(@RequestBody SortOrderRequest sortOrderRequest, @PathVariable Long categoryId) {
+        menuItemCommandService.updateSortOrder(sortOrderRequest.getOrderedIds(), categoryId);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }

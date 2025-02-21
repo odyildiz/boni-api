@@ -14,7 +14,7 @@ CREATE TABLE menu_category
     slug    VARCHAR(255) NOT NULL UNIQUE,
     name_tr VARCHAR(255) NOT NULL,
     name_en VARCHAR(255) NOT NULL,
-    sort_order INT NOT NULL UNIQUE
+    sort_order INT NOT NULL
 );
 
 -- Create menu_item table
@@ -28,8 +28,7 @@ CREATE TABLE menu_item
     price2      DOUBLE PRECISION,
     category_id BIGINT           NOT NULL,
     sort_order  INT              NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES menu_category (id),
-    UNIQUE (category_id, sort_order)
+    FOREIGN KEY (category_id) REFERENCES menu_category (id)
 );
 -- Create gallery photo table
 CREATE TABLE photo (
@@ -39,7 +38,7 @@ CREATE TABLE photo (
                        title_en VARCHAR(255) NOT NULL,
                        description_tr TEXT NOT NULL,
                        description_en TEXT NOT NULL,
-                       sort_order INT NOT NULL UNIQUE
+                       sort_order INT NOT NULL
 );
 
 ---- sample data --------

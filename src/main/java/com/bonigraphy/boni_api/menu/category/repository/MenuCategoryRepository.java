@@ -1,7 +1,6 @@
 package com.bonigraphy.boni_api.menu.category.repository;
 
 import com.bonigraphy.boni_api.menu.category.entity.MenuCategory;
-import com.bonigraphy.boni_api.menu.item.entity.MenuItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,8 +16,8 @@ public interface MenuCategoryRepository extends JpaRepository<MenuCategory, Long
 
     @Query(value = """
     SELECT * FROM menu_category
-    WHERE id IN (:ids)
-    ORDER BY array_position(ARRAY[:ids]::bigint[], id)
+    WHERE id = ANY(CAST(:ids AS bigint[]))
+    ORDER BY array_position(CAST(:ids AS bigint[]), id)
 """, nativeQuery = true)
-    List<MenuCategory> findAllByIdInOrder(@Param("ids") List<Long> ids);
+    List<MenuCategory> findAllByIdInOrder(@Param("ids") Long[] ids);
 }

@@ -2,6 +2,7 @@ package com.bonigraphy.boni_api.gallery.photo.rest;
 
 import com.bonigraphy.boni_api.gallery.GalleryPhotoDto;
 import com.bonigraphy.boni_api.gallery.photo.dto.AddPhotoRequest;
+import com.bonigraphy.boni_api.gallery.photo.dto.SortOrderRequest;
 import com.bonigraphy.boni_api.gallery.photo.dto.UpdatePhotoRequest;
 import com.bonigraphy.boni_api.gallery.photo.service.PhotoCommandService;
 import com.bonigraphy.boni_api.gallery.photo.service.PhotoQueryService;
@@ -50,8 +51,8 @@ public class PhotoController {
 
     @PostMapping("/reorder")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<HttpStatus> reorderItems(@RequestBody List<Long> orderedIds) {
-        photoCommandService.updateSortOrder(orderedIds);
+    public ResponseEntity<HttpStatus> reorderPhotos(@RequestBody SortOrderRequest sortOrderRequest) {
+        photoCommandService.updateSortOrder(sortOrderRequest.getOrderedIds());
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }

@@ -47,7 +47,7 @@ public class MenuCategoryCommandServiceImpl implements MenuCategoryCommandServic
 
     @Override
     public void updateSortOrder(List<Long> orderedIds) {
-        List<MenuCategory> items = menuCategoryRepository.findAllByIdInOrder(orderedIds);
+        List<MenuCategory> items = menuCategoryRepository.findAllByIdInOrder(orderedIds.toArray(new Long[0]));
         for (int i = 0; i < orderedIds.size(); i++) {
             items.get(i).setSortOrder(i);
         }

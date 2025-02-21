@@ -47,7 +47,7 @@ public class PhotoCommandServiceImpl implements PhotoCommandService {
 
     @Override
     public void updateSortOrder(List<Long> orderedIds) {
-        List<Photo> items = photoRepository.findAllByIdInOrder(orderedIds);
+        List<Photo> items = photoRepository.findAllByIdInOrder(orderedIds.toArray(new Long[0]));
         for (int i = 0; i < orderedIds.size(); i++) {
             items.get(i).setSortOrder(i);
         }
