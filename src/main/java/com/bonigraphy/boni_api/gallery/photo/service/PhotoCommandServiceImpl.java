@@ -7,6 +7,8 @@ import com.bonigraphy.boni_api.gallery.photo.repository.PhotoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PhotoCommandServiceImpl implements PhotoCommandService {
@@ -41,6 +43,15 @@ public class PhotoCommandServiceImpl implements PhotoCommandService {
 
     public void delete(Long id) {
         photoRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateSortOrder(List<Long> orderedIds) {
+        List<Photo> items = photoRepository.findAllByIdInOrder(orderedIds);
+        for (int i = 0; i < orderedIds.size(); i++) {
+            items.get(i).setSortOrder(i);
+        }
+        photoRepository.saveAll(items);
     }
 
 }

@@ -47,4 +47,11 @@ public class PhotoController {
         photoCommandService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/reorder")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<HttpStatus> reorderItems(@RequestBody List<Long> orderedIds) {
+        photoCommandService.updateSortOrder(orderedIds);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
 }

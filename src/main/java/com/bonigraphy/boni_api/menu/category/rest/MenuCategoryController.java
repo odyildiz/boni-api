@@ -50,4 +50,11 @@ public class MenuCategoryController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
+    @PostMapping("/reorder")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<HttpStatus> reorderItems(@RequestBody List<Long> orderedIds) {
+        menuCategoryCommandService.updateSortOrder(orderedIds);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
 }

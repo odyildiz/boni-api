@@ -47,4 +47,11 @@ public class MenuItemController {
         menuItemCommandService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/reorder/{categoryId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<HttpStatus> reorderItems(@RequestBody List<Long> orderedIds, @PathVariable Long categoryId) {
+        menuItemCommandService.updateSortOrder(orderedIds, categoryId);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
 }

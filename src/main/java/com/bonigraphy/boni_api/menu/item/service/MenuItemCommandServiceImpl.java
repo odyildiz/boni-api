@@ -1,5 +1,6 @@
 package com.bonigraphy.boni_api.menu.item.service;
 
+import com.bonigraphy.boni_api.menu.category.entity.MenuCategory;
 import com.bonigraphy.boni_api.menu.category.repository.MenuCategoryRepository;
 import com.bonigraphy.boni_api.menu.item.dto.AddMenuItemRequest;
 import com.bonigraphy.boni_api.menu.item.dto.UpdateMenuItemRequest;
@@ -8,6 +9,8 @@ import com.bonigraphy.boni_api.menu.item.repository.MenuItemRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -60,6 +63,15 @@ public class MenuItemCommandServiceImpl implements MenuItemCommandService {
     @Override
     public void delete(Long id) {
         menuItemRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateSortOrder(List<Long> orderedIds, Long categoryId) {
+        List<MenuItem> items = menuItemRepository.findAllByIdInOrder(orderedIds, categoryId);
+        for (int i = 0; i < orderedIds.size(); i++) {
+            items.get(i).setSortOrder(i);
+        }
+        menuItemRepository.saveAll(items);
     }
 
     private static String slugify(String input) {
