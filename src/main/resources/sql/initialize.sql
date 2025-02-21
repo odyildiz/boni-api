@@ -32,7 +32,7 @@ CREATE TABLE menu_item
 -- Create gallery photo table
 CREATE TABLE photo (
                        id SERIAL PRIMARY KEY,
-                       image_url VARCHAR(255) NOT NULL,
+                       image_url VARCHAR(500) NOT NULL,
                        title_tr VARCHAR(255) NOT NULL,
                        title_en VARCHAR(255) NOT NULL,
                        description_tr TEXT NOT NULL,
