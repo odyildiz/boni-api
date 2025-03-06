@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -16,5 +18,6 @@ public class UpdatePhotoRequest {
     private String titleEn;
     private String descriptionTr;
     private String descriptionEn;
+    private Set<Long> labelIds;
     
 }
