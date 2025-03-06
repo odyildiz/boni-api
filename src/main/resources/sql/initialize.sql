@@ -34,11 +34,24 @@ CREATE TABLE menu_item
 CREATE TABLE photo (
                        id SERIAL PRIMARY KEY,
                        image_url VARCHAR(500) NOT NULL,
-                       title_tr VARCHAR(255) NOT NULL,
-                       title_en VARCHAR(255) NOT NULL,
-                       description_tr TEXT NOT NULL,
-                       description_en TEXT NOT NULL,
+                       title_tr VARCHAR(255),
+                       title_en VARCHAR(255),
+                       description_tr TEXT,
+                       description_en TEXT,
                        sort_order INT NOT NULL
+);
+
+-- Create photo label table
+CREATE TABLE photo_label (
+                       id SERIAL PRIMARY KEY,
+                       name_tr VARCHAR(255) NOT NULL,
+                       name_en VARCHAR(255) NOT NULL
+);
+
+-- Create photo_photo_label relation table
+CREATE TABLE photo_photo_label (
+                       photo_id BIGINT,
+                       label_id BIGINT
 );
 
 ---- sample data --------

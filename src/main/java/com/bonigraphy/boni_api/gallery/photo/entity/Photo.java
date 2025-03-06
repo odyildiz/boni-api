@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Entity
 @Builder
@@ -21,18 +23,21 @@ public class Photo {
     @Column(nullable = false)
     private String imageUrl;
 
-    @Column(nullable = false)
     private String titleTr;
 
-    @Column(nullable = false)
     private String titleEn;
 
-    @Column(nullable = false)
     private String descriptionTr;
 
-    @Column(nullable = false)
     private String descriptionEn;
 
     @Column(nullable = false)
     private Integer sortOrder;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "photo_photo_label",
+            joinColumns = @JoinColumn(name = "photo_id"),
+            inverseJoinColumns = @JoinColumn(name = "label_id"))
+    private Set<PhotoLabel> photoLabels;
 }
