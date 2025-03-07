@@ -9,7 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 public class GalleryPhotoLabelContent {
 
-    private List<Label> labelList;
+    private List<Label> labels;
 
     @Setter
     @Getter
