@@ -3,13 +3,14 @@ package com.bonigraphy.boni_api.ui;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GalleryContent {
+public class GalleryPhotoContent {
 
-    private List<GalleryContent.Photo> photos;
+    private List<GalleryPhotoContent.Photo> photos;
 
     @Setter
     @Getter
@@ -17,8 +18,9 @@ public class GalleryContent {
     public static class Photo {
         private Long id;
         private String url;
-        private GalleryContent.LocalizedContent title;
-        private GalleryContent.LocalizedContent description;
+        private GalleryPhotoContent.LocalizedContent title;
+        private GalleryPhotoContent.LocalizedContent description;
+        private Set<Long> labelIds;
     }
 
     @Setter

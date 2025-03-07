@@ -1,6 +1,6 @@
 package com.bonigraphy.boni_api.gallery.photo.rest;
 
-import com.bonigraphy.boni_api.gallery.photo.dto.PhotoLabelDto;
+import com.bonigraphy.boni_api.gallery.GalleryPhotoLabelDto;
 import com.bonigraphy.boni_api.gallery.photo.dto.AddPhotoLabelRequest;
 import com.bonigraphy.boni_api.gallery.photo.dto.UpdatePhotoLabelRequest;
 import com.bonigraphy.boni_api.gallery.photo.service.PhotoLabelCommandService;
@@ -23,7 +23,7 @@ public class PhotoLabelController {
 
     @GetMapping("/list")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<List<PhotoLabelDto>> list() {
+    public ResponseEntity<List<GalleryPhotoLabelDto>> list() {
         return ResponseEntity.ok(photoLabelQueryService.findAll());
     }
 

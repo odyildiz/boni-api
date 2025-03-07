@@ -1,6 +1,5 @@
 package com.bonigraphy.boni_api.gallery;
 
-import com.bonigraphy.boni_api.gallery.photo.dto.PhotoLabelDto;
 import com.bonigraphy.boni_api.gallery.photo.entity.Photo;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,7 +18,7 @@ public class GalleryPhotoDto {
     private String titleEn;
     private String descriptionTr;
     private String descriptionEn;
-    private Set<PhotoLabelDto> labels;
+    private Set<GalleryPhotoLabelDto> labels;
 
     public static GalleryPhotoDto fromPhoto(Photo photo) {
         var photoLabels = new HashSet<>(photo.getPhotoLabels());
@@ -30,7 +29,7 @@ public class GalleryPhotoDto {
                 .titleEn(photo.getTitleEn())
                 .descriptionTr(photo.getDescriptionTr())
                 .descriptionEn(photo.getDescriptionEn())
-                .labels(photoLabels.stream().map(PhotoLabelDto::fromPhotoLabel).collect(Collectors.toSet()))
+                .labels(photoLabels.stream().map(GalleryPhotoLabelDto::fromPhotoLabel).collect(Collectors.toSet()))
                 .build();
     }
 
