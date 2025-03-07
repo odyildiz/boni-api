@@ -22,4 +22,6 @@ public interface PhotoRepository extends JpaRepository<Photo, Long> {
 """, nativeQuery = true)
     List<Photo> findAllByIdInOrder(@Param("ids") Long[] ids);
 
+    List<Photo> findAllByOrderBySortOrderAsc();
+
 }

@@ -1,14 +1,15 @@
 package com.bonigraphy.boni_api.gallery.photo.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "photo_label")
 public class PhotoLabel {
 
@@ -22,7 +23,7 @@ public class PhotoLabel {
     @Column(nullable = false)
     private String nameEn;
 
-    @ManyToMany(mappedBy = "photoLabels")
+    @ManyToMany(mappedBy = "photoLabels", fetch = FetchType.EAGER)
     private Set<Photo> photos;
 
 }

@@ -1,14 +1,12 @@
 package com.bonigraphy.boni_api.gallery.photo.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -34,7 +32,7 @@ public class Photo {
     @Column(nullable = false)
     private Integer sortOrder;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(
             name = "photo_photo_label",
             joinColumns = @JoinColumn(name = "photo_id"),
